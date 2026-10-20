@@ -1,5 +1,7 @@
 # AccessoryChargeGlance
 
+**🌐 Website:** [turhe123.github.io/accessory-charge-glance](https://turhe123.github.io/accessory-charge-glance/)
+
 See the battery level of your Magic Mouse, keyboard, trackpad and other Bluetooth gear in the menu bar, with low alerts.
 
 ![macOS 14+](https://img.shields.io/badge/macOS-14%2B-blue)
@@ -30,7 +32,13 @@ macOS buries accessory batteries in the Bluetooth menu or a Notification Center 
 
 ## Screenshots
 
-_Screenshots coming soon._
+<p align="center"><img src="docs/screenshots/01-settings.png" alt="AccessoryChargeGlance Settings window" width="720"></p>
+
+<p align="center"><em>Settings with adjustable low and critical battery thresholds, a full-charge alert toggle, menu bar display options, refresh interval and per-device alert switches.</em></p>
+
+<p align="center"><img src="docs/screenshots/02-popover-empty.png" alt="AccessoryChargeGlance menu bar popover showing no accessories found" width="560"></p>
+
+<p align="center"><em>The menu bar popover with refresh, Settings, Support / Donate and Quit buttons, telling you to connect a Bluetooth mouse, keyboard or trackpad when none report a battery level.</em></p>
 
 ## Install
 

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AccessoryChargeGlance — Accessory battery levels in your menu bar</title>
+  <meta name="description" content="Free, open-source macOS menu bar app that shows Magic Mouse, keyboard, trackpad and Bluetooth accessory battery levels, with low-battery alerts. No tracking.">
+  <meta name="theme-color" content="#0b0b10">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AccessoryChargeGlance — Accessory battery levels in your menu bar">
+  <meta property="og:description" content="Free, open-source macOS menu bar app that shows Magic Mouse, keyboard, trackpad and Bluetooth accessory battery levels, with low-battery alerts. No tracking.">
+  <meta property="og:url" content="https://turhe123.github.io/accessory-charge-glance/">
+  <meta property="og:image" content="https://turhe123.github.io/accessory-charge-glance/screenshots/01-settings.png">
+  <meta property="og:site_name" content="AccessoryChargeGlance">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AccessoryChargeGlance — Accessory battery levels in your menu bar">
+  <meta name="twitter:description" content="Free, open-source macOS menu bar app that shows Magic Mouse, keyboard, trackpad and Bluetooth accessory battery levels, with low-battery alerts. No tracking.">
+  <meta name="twitter:image" content="https://turhe123.github.io/accessory-charge-glance/screenshots/01-settings.png">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>window.APP_CONFIG = { RELEASE_API_URL: "https://api.github.com/repos/turhe123/accessory-charge-glance/releases/latest", ASSET_NAME: "AccessoryChargeGlance-macOS.zip" };</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="bg" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow--violet"></div>
+    <div class="bg-glow bg-glow--cyan"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <header class="nav-wrap">
+    <nav class="nav container" aria-label="Primary">
+      <a class="logo" href="#top" aria-label="AccessoryChargeGlance home">
+        <span class="logo-mark" aria-hidden="true"><img src="assets/icon.png" width="26" height="26" alt="" style="border-radius:7px"></span>
+        <span class="logo-text">AccessoryChargeGlance</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#screenshots">Screenshots</a></li>
+        <li><a href="#install">Install</a></li>
+        <li><a href="https://github.com/turhe123/accessory-charge-glance" target="_blank" rel="noopener">GitHub</a></li>
+        <li class="nav-cta"><a class="btn btn--small btn--primary" href="https://github.com/turhe123/accessory-charge-glance/releases/latest/download/AccessoryChargeGlance-macOS.zip" data-download>Download</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero container" id="top">
+      <div class="hero-copy">
+        <img class="app-icon-hero reveal" src="assets/icon.png" alt="AccessoryChargeGlance icon" width="84" height="84">
+        <p class="eyebrow reveal"><span class="eyebrow-dot" aria-hidden="true"></span>Open source · macOS 14+ · Universal binary · Battery & Power</p>
+        <h1 class="hero-title reveal">Accessory batteries,<br><span class="grad-text">always in view.</span></h1>
+        <p class="hero-sub reveal">AccessoryChargeGlance puts the lowest battery among your Bluetooth mice, keyboards and trackpads in the menu bar. Click it for the full list, and get an alert before something dies.</p>
+        <div class="hero-ctas reveal">
+          <a class="btn btn--primary btn--large" href="https://github.com/turhe123/accessory-charge-glance/releases/latest/download/AccessoryChargeGlance-macOS.zip" data-download>
+            <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path fill="currentColor" d="M10 2a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42L9 11.6V3a1 1 0 0 1 1-1Zm-7 13a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>
+            Download for macOS
+          </a>
+          <a class="btn btn--ghost btn--large" href="https://github.com/turhe123/accessory-charge-glance" target="_blank" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+            View on GitHub
+          </a>
+        </div>
+        <p class="hero-hint reveal">Free &amp; MIT licensed · Apple Silicon &amp; Intel · <span data-version>Latest release</span></p>
+      </div>
+      <div class="hero-shot reveal">
+        <img src="screenshots/01-settings.png" alt="AccessoryChargeGlance Settings window" loading="eager">
+      </div>
+    </section>
+
+    <section class="section container" id="features">
+      <div class="section-head reveal">
+        <p class="section-kicker">Features</p>
+        <h2 class="section-title">Everything you need, nothing more.</h2>
+        <p class="section-sub">A focused battery readout and alerts, without pairing, handoff or background network traffic.</p>
+      </div>
+      <div class="features">
+        <article class="card reveal">
+          <div class="card-icon card-icon--violet"><svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="8" width="16" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M21 11v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="5.5" y="10.5" width="7" height="3" rx=".8" fill="currentColor"/></svg></div>
+          <h3>Lowest battery at a glance</h3>
+          <p>The menu bar item shows the lowest percentage among connected accessories. You can hide the text or show an icon for every device instead.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon card-icon--cyan"><svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.8"/><circle cx="6.5" cy="7" r=".9" fill="currentColor"/><circle cx="9.5" cy="7" r=".9" fill="currentColor"/></svg></div>
+          <h3>Clear popover list</h3>
+          <p>Each accessory appears with its name, a device-type symbol, a colored battery bar and its percentage, sorted lowest first. A bolt marks devices that are charging.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon card-icon--grad"><svg viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15zM10 20a2 2 0 0 0 4 0"/></svg></div>
+          <h3>Low and critical alerts</h3>
+          <p>Local notifications fire at 20% and 10% by default, adjustable from 5 to 50%. Each alert fires once per drop, and an optional alert tells you when a device reaches 100%.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon card-icon--violet"><svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <h3>Recently seen devices</h3>
+          <p>The last known level of each device is remembered, so disconnected accessories show dimmed with a last-seen time. Readings older than 30 minutes get a clock marker.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon card-icon--cyan"><svg viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 7h10m4 0h2M4 12h3m4 0h9M4 17h12m4 0h0"/><circle cx="16" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="9" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></div>
+          <h3>Control what you are told</h3>
+          <p>Mute alerts per device, choose a refresh interval of 1, 2 or 5 minutes, and enable launch at login. Refreshes also happen when a Bluetooth device connects or disconnects.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon card-icon--grad"><svg viewBox="0 0 24 24" width="22" height="22"><rect x="5" y="10" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></div>
+          <h3>Native and private</h3>
+          <p>Built only with Apple frameworks, with no third-party dependencies, analytics or network calls. The full source is available under the MIT license.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="screenshots">
+      <div class="section-head reveal">
+        <p class="section-kicker">Screenshots</p>
+        <h2 class="section-title">See it in action.</h2>
+      </div>
+      <div class="gallery reveal">
+        <figure><img src="screenshots/01-settings.png" alt="AccessoryChargeGlance Settings window" loading="lazy"><figcaption>Settings with adjustable low and critical battery thresholds, a full-charge alert toggle, menu bar display options, refresh interval and per-device alert switches.</figcaption></figure>
+        <figure><img src="screenshots/02-popover-empty.png" alt="AccessoryChargeGlance menu bar popover showing no accessories found" loading="lazy"><figcaption>The menu bar popover with refresh, Settings, Support / Donate and Quit buttons, telling you to connect a Bluetooth mouse, keyboard or trackpad when none report a battery level.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section container section--narrow" id="install">
+      <div class="section-head reveal">
+        <p class="section-kicker">Install</p>
+        <h2 class="section-title">Up and running in a minute.</h2>
+        <p class="section-sub">AccessoryChargeGlance is open source and not notarized with a paid Apple Developer ID, so macOS needs one extra step the first time.</p>
+      </div>
+      <ol class="steps reveal">
+        <li>Download <strong>AccessoryChargeGlance-macOS.zip</strong> and unzip it.</li>
+        <li>Move <strong>AccessoryChargeGlance.app</strong> to your <strong>Applications</strong> folder.</li>
+        <li>Clear the quarantine flag once, then right-click the app and choose <strong>Open</strong>:<pre>xattr -cr /Applications/AccessoryChargeGlance.app</pre></li>
+        <li>If macOS asks, allow Bluetooth access and Notifications you can change either later in System Settings Privacy Security (Bluetooth) and System Settings Notifications.</li>
+      </ol>
+    </section>
+
+    <section class="section container" id="download">
+      <div class="download-card reveal">
+        <div class="download-glow" aria-hidden="true"></div>
+        <div class="download-copy">
+          <p class="section-kicker">Download</p>
+          <h2 class="section-title">Get AccessoryChargeGlance for macOS</h2>
+          <p class="section-sub">Free, forever. Built for macOS 14 Sonoma or newer, Apple Silicon and Intel.</p>
+          <div class="download-actions">
+            <a class="btn btn--primary btn--large" href="https://github.com/turhe123/accessory-charge-glance/releases/latest/download/AccessoryChargeGlance-macOS.zip" data-download>
+              <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path fill="currentColor" d="M10 2a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42L9 11.6V3a1 1 0 0 1 1-1Zm-7 13a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>
+              Download for macOS
+            </a>
+            <a class="btn btn--ghost btn--large" href="https://github.com/turhe123/accessory-charge-glance/releases/latest" target="_blank" rel="noopener">All releases</a>
+          </div>
+          <p class="release-meta" data-release-meta>AccessoryChargeGlance-macOS.zip · GitHub Releases</p>
+          <p class="download-hint">Not notarized: on first launch right-click <strong>AccessoryChargeGlance.app → Open</strong>.</p>
+        </div>
+        <div class="download-aside">
+          <div class="app-tile" aria-hidden="true"><img src="assets/icon.png" width="72" height="72" alt="" style="border-radius:18px"></div>
+          <ul class="download-facts">
+            <li>macOS 14 Sonoma+</li>
+            <li>Universal (Apple Silicon + Intel)</li>
+            <li>MIT licensed · open source</li>
+            <li>No ads, no accounts, no telemetry</li>
+            <li>Built with Claude Code · <a href="https://github.com/turhe123/accessory-charge-glance#built-with-ai" target="_blank" rel="noopener">how and why</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container section--narrow" id="faq">
+      <div class="section-head reveal">
+        <p class="section-kicker">FAQ</p>
+        <h2 class="section-title">Questions, answered.</h2>
+      </div>
+      <div class="faq reveal">
+        <details class="faq-item" open><summary>Is AccessoryChargeGlance really free and open source?</summary><div class="faq-body"><p>Yes. It is free to use and released under the MIT license, with the full source on GitHub. There are no accounts, subscriptions or paid tiers, and an optional Support button links to Ko-fi if you want to chip in.</p></div></details>
+        <details class="faq-item"><summary>What permissions does it need?</summary><div class="faq-body"><p>It does not need Accessibility, Screen Recording or Microphone access. macOS may ask for Bluetooth access, so the app can read the names and connection state of your paired accessories, and for Notifications so it can send alerts. Launch at login is only used if you turn it on.</p></div></details>
+        <details class="faq-item"><summary>Where is my data stored?</summary><div class="faq-body"><p>On your Mac only. Settings are kept in the app&#x27;s preferences, and the last known battery level of each device is saved as a small JSON file in Application Support. The app makes no network calls.</p></div></details>
+        <details class="faq-item"><summary>Why is the app not notarized?</summary><div class="faq-body"><p>Notarization requires a paid Apple Developer account, and this is a free open-source project. Right-click the app and choose Open once to get past Gatekeeper, or build it yourself from source with Xcode.</p></div></details>
+        <details class="faq-item"><summary>Was this written by AI?</summary><div class="faq-body"><p>Yes. AccessoryChargeGlance was generated by Claude Code from a written spec as a clean-room reimplementation, with no code or assets from any commercial app. The full source is on GitHub under MIT, so you can read every line before you run it. It has had less human review than a hand-written app, so bug reports are welcome.</p></div></details>
+      </div>
+    </section>
+
+    <section class="section container section--narrow" id="support">
+      <div class="support-card reveal">
+        <p class="section-kicker">Support ❤️</p>
+        <h2 class="section-title">Built by one person, given away for free.</h2>
+        <p>AccessoryChargeGlance is a free, open-source alternative to paid utilities. If it earns a spot on your Mac, a coffee keeps the updates coming.</p>
+        <a class="btn btn--kofi btn--large" href="https://ko-fi.com/leodavidai" target="_blank" rel="noopener">☕ Support Or on Ko-fi</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© 2026 Or Davidai Bachar · MIT License</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/turhe123/accessory-charge-glance" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://ko-fi.com/leodavidai" target="_blank" rel="noopener">Ko-fi</a></li>
+        <li><a href="https://github.com/turhe123/accessory-charge-glance/issues" target="_blank" rel="noopener">Report a bug</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="app.js" defer></script>
+</body>
+</html>

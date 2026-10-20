@@ -1,0 +1,4 @@
+[
+  {"file":"01-settings.png","caption":"Settings with adjustable low and critical battery thresholds, a full-charge alert toggle, menu bar display options, refresh interval and per-device alert switches.","alt":"AccessoryChargeGlance Settings window"},
+  {"file":"02-popover-empty.png","caption":"The menu bar popover with refresh, Settings, Support / Donate and Quit buttons, telling you to connect a Bluetooth mouse, keyboard or trackpad when none report a battery level.","alt":"AccessoryChargeGlance menu bar popover showing no accessories found"}
+]

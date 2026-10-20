@@ -1,0 +1,60 @@
+{
+  "seo_title": "Accessory battery levels in your menu bar",
+  "seo_description": "Free, open-source macOS menu bar app that shows Magic Mouse, keyboard, trackpad and Bluetooth accessory battery levels, with low-battery alerts. No tracking.",
+  "hero_title_line1": "Accessory batteries,",
+  "hero_title_accent": "always in view.",
+  "hero_sub": "AccessoryChargeGlance puts the lowest battery among your Bluetooth mice, keyboards and trackpads in the menu bar. Click it for the full list, and get an alert before something dies.",
+  "features_title": "Everything you need, nothing more.",
+  "features_sub": "A focused battery readout and alerts, without pairing, handoff or background network traffic.",
+  "features": [
+    {
+      "icon": "battery",
+      "title": "Lowest battery at a glance",
+      "desc": "The menu bar item shows the lowest percentage among connected accessories. You can hide the text or show an icon for every device instead."
+    },
+    {
+      "icon": "window",
+      "title": "Clear popover list",
+      "desc": "Each accessory appears with its name, a device-type symbol, a colored battery bar and its percentage, sorted lowest first. A bolt marks devices that are charging."
+    },
+    {
+      "icon": "bell",
+      "title": "Low and critical alerts",
+      "desc": "Local notifications fire at 20% and 10% by default, adjustable from 5 to 50%. Each alert fires once per drop, and an optional alert tells you when a device reaches 100%."
+    },
+    {
+      "icon": "clock",
+      "title": "Recently seen devices",
+      "desc": "The last known level of each device is remembered, so disconnected accessories show dimmed with a last-seen time. Readings older than 30 minutes get a clock marker."
+    },
+    {
+      "icon": "sliders",
+      "title": "Control what you are told",
+      "desc": "Mute alerts per device, choose a refresh interval of 1, 2 or 5 minutes, and enable launch at login. Refreshes also happen when a Bluetooth device connects or disconnects."
+    },
+    {
+      "icon": "lock",
+      "title": "Native and private",
+      "desc": "Built only with Apple frameworks, with no third-party dependencies, analytics or network calls. The full source is available under the MIT license."
+    }
+  ],
+  "permissions_step": "If macOS asks, allow Bluetooth access and Notifications; you can change either later in System Settings > Privacy & Security (Bluetooth) and System Settings > Notifications.",
+  "faq": [
+    {
+      "q": "Is AccessoryChargeGlance really free and open source?",
+      "a": "Yes. It is free to use and released under the MIT license, with the full source on GitHub. There are no accounts, subscriptions or paid tiers, and an optional Support button links to Ko-fi if you want to chip in."
+    },
+    {
+      "q": "What permissions does it need?",
+      "a": "It does not need Accessibility, Screen Recording or Microphone access. macOS may ask for Bluetooth access, so the app can read the names and connection state of your paired accessories, and for Notifications so it can send alerts. Launch at login is only used if you turn it on."
+    },
+    {
+      "q": "Where is my data stored?",
+      "a": "On your Mac only. Settings are kept in the app's preferences, and the last known battery level of each device is saved as a small JSON file in Application Support. The app makes no network calls."
+    },
+    {
+      "q": "Why is the app not notarized?",
+      "a": "Notarization requires a paid Apple Developer account, and this is a free open-source project. Right-click the app and choose Open once to get past Gatekeeper, or build it yourself from source with Xcode."
+    }
+  ]
+}
