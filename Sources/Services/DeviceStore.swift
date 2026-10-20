@@ -33,14 +33,20 @@ final class DeviceStore: ObservableObject {
                 self?.refresh()
             }
         }
-        watcher.start()
         scheduleTimer()
         defaultsObserver = NotificationCenter.default.addObserver(
             forName: UserDefaults.didChangeNotification, object: nil, queue: .main) { [weak self] _ in
             Task { @MainActor in self?.scheduleTimer() }
         }
         alerts.requestAuthorizationIfNeeded()
-        refresh()
+        // Nothing here may touch IOBluetooth synchronously: its first call blocks until the user answers the
+        // Bluetooth permission prompt, and doing that inside init froze the app before its menu bar item
+        // appeared. The first scan runs off the main thread; the connect/disconnect watcher is only
+        // registered once that scan has returned (i.e. the prompt has been answered).
+        Task { [weak self] in
+            await self?.refreshAndWait()
+            self?.watcher.start()
+        }
     }
 
     func displayName(_ d: DeviceReading) -> String { displayNames[d.address] ?? d.name }
@@ -57,14 +63,25 @@ final class DeviceStore: ObservableObject {
 
     /// Re-reads IOKit and IOBluetooth, updates records, fires alerts and saves.
     func refresh() {
+        Task { [weak self] in await self?.refreshAndWait() }
+    }
+
+    /// Scans on a background task and applies the result on the main actor.
+    func refreshAndWait() async {
+        guard !isRefreshing else { return }
         isRefreshing = true
         defer { isRefreshing = false }
-        bluetoothAvailable = BatteryScanner.hasBluetooth
-        bluetoothDenied = BatteryScanner.bluetoothDenied
+        let snapshot = await Task.detached(priority: .utility) { BatteryScanner.snapshot() }.value
+        apply(snapshot)
+    }
+
+    private func apply(_ snapshot: ScanSnapshot) {
+        bluetoothAvailable = snapshot.hasBluetooth
+        bluetoothDenied = snapshot.bluetoothDenied
         let now = Date()
         var seen = Set<String>()
 
-        for raw in BatteryScanner.scanRegistry() {
+        for raw in snapshot.registry {
             seen.insert(raw.address)
             let since = firstConnected[raw.address] ?? now
             firstConnected[raw.address] = since
@@ -72,7 +89,7 @@ final class DeviceStore: ObservableObject {
             let percent = (raw.percent == 0 && now.timeIntervalSince(since) < 10) ? nil : raw.percent
             update(raw.address, name: raw.name, percent: percent, charging: raw.charging, now: now)
         }
-        for paired in BatteryScanner.pairedDevices() where paired.connected && !seen.contains(paired.address) {
+        for paired in snapshot.paired where paired.connected && !seen.contains(paired.address) {
             seen.insert(paired.address)
             firstConnected[paired.address] = firstConnected[paired.address] ?? now
             update(paired.address, name: paired.name, percent: nil, charging: false, now: now)

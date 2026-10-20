@@ -4,11 +4,25 @@ import IOBluetooth
 import IOKit
 
 /// A raw battery sample taken from the IOKit registry or the IOBluetooth paired list.
-struct RawReading {
+struct RawReading: Sendable {
     let address: String
     let name: String
     let percent: Int?
     let charging: Bool
+}
+
+/// Everything one refresh needs, gathered in a single pass so IOKit/IOBluetooth calls can run off the main thread.
+struct ScanSnapshot: Sendable {
+    let hasBluetooth: Bool
+    let bluetoothDenied: Bool
+    let registry: [RawReading]
+    let paired: [PairedDevice]
+}
+
+struct PairedDevice: Sendable {
+    let address: String
+    let name: String
+    let connected: Bool
 }
 
 /// Reads battery information for Bluetooth accessories from the IOKit registry and IOBluetooth.
@@ -55,12 +69,21 @@ enum BatteryScanner {
     }
 
     /// Paired Bluetooth devices with their connection state (no battery level).
-    static func pairedDevices() -> [(address: String, name: String, connected: Bool)] {
+    /// The first IOBluetooth call can block until the user answers the Bluetooth permission prompt,
+    /// so callers must not run this on the main thread at launch.
+    static func pairedDevices() -> [PairedDevice] {
         guard let devices = IOBluetoothDevice.pairedDevices() as? [IOBluetoothDevice] else { return [] }
         return devices.compactMap { device in
             guard let address = device.addressString else { return nil }
-            return (normalize(address), device.name ?? "Bluetooth Device", device.isConnected())
+            return PairedDevice(address: normalize(address), name: device.name ?? "Bluetooth Device",
+                                connected: device.isConnected())
         }
+    }
+
+    /// One full pass over IOKit and IOBluetooth. Safe to call from a background task.
+    static func snapshot() -> ScanSnapshot {
+        ScanSnapshot(hasBluetooth: hasBluetooth, bluetoothDenied: bluetoothDenied,
+                     registry: scanRegistry(), paired: pairedDevices())
     }
 
     /// Whether this Mac has a Bluetooth controller at all.
